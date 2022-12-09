@@ -76,7 +76,3 @@ docker run --volume /path/to/program/directory:/home/myuser/ ks468/winequal #thi
 
 Link to docker repo:
 https://hub.docker.com/r/ks468/winepredict
-
-
-
-![image](https://user-images.githubusercontent.com/48882827/206627020-6e89e6cd-75e4-40c6-9cfd-ff609e9ec950.png)
