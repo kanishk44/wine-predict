@@ -1,4 +1,4 @@
-# wine-predict
+# Wine Quality Prediction over AWS EMR
 
 Training the model
 5 nodes will be used to create a cluster, 1 of which will serve as the master node and the others as slave nodes.
@@ -57,8 +57,13 @@ Run the Testing file: -
 spark-submit test.py
 
 
-Docker Implementation: - pull the image from my docker repo using this command: docker pull ks468/winepredict:latest
-Run the docker image using this command: docker run --volume /path/to/program/directory:/home/myuser/ ks468/winequal #this shares the volumes with local for running the app.
+Docker Implementation: - 
+Pull the image from my docker repo using this command:
+docker pull ks468/winepredict:latest
+
+Run the docker image using this command:
+docker run --volume /path/to/program/directory:/home/myuser/ ks468/winequal #this shares the volumes with local for running the app.
+
 Link to docker repo:
 https://hub.docker.com/r/ks468/winepredict
 
