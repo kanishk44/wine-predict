@@ -8,7 +8,9 @@ After cluster creation S3 bucket will be auto generated. Here we will submit Tra
 Now we will pull the stored files from S3 bucket to the master node by connecting to the master node.
 
 aws s3 cp s3://aws-logs-877244108283-us-east-1/elasticmapreduce/j-38II9TYTEUBU5/TrainingDataset.csv ./
+
 aws s3 cp s3://aws-logs-877244108283-us-east-1/elasticmapreduce/j-38II9TYTEUBU5/ValidationDataset.csv ./
+
 aws s3 cp s3://aws-logs-877244108283-us-east-1/elasticmapreduce/j-38II9TYTEUBU5/Training.py ./
 
 
@@ -38,7 +40,8 @@ Wine Quality Prediction
 Create an ec2 instance
 Install all the required dependencies, Scalav2 and Sparkv2.
 Copy the trained the model from S3 and paste it in Ec2 instance
-aws s3 cp s3://aws-logs-766621730595-us-east-1/elasticmapreduce/j-1CPN0XQGUGAEC/trainingmodel.model ./ --recursive
+
+aws s3 cp s3://aws-logs-766621730595-us-east-1/elasticmapreduce/j-38II9TYTEUBU5/trainingmodel.model ./ --recursive
 Unzip the model and move the contents to the new folder: -  
 
 tar -xzvf model.tar.gz
