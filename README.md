@@ -4,9 +4,9 @@ This application is a wine quality prediction ML model in Spark over AWS. The mo
 and loaded in a Spark application that will perform wine quality prediction. This application is executed on one EC2 instance. The application is implemented in Python on Ubuntu Linux. 
 
 ## Input for model training:
-We use 2 datasets with you for your ML model:
-o TrainingDataset.csv: This dataset is used to train the model in parallel on multiple EC2 instances. 
-o ValidationDataset.csv: This dataset is used to validate the model and optimize its performance. 
+We use 2 datasets for the ML model:
+1. TrainingDataset.csv: This dataset is used to train the model in parallel on multiple EC2 instances. 
+2. ValidationDataset.csv: This dataset is used to validate the model and optimize its performance. 
 
 
 ## The purpose of this project is to learn how to develop parallel machine learning (ML) applications in Amazon AWS cloud platform.
