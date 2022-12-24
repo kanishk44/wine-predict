@@ -20,7 +20,7 @@ Specifically, you will learn:
 A Docker container is built for this prediction application. In this way, the prediction model can be quickly deployed across many different environments.
 
 
-##Here is a step by step guide for developing and deploying the application:
+## Here is a step by step guide for developing and deploying the application:
 
 ### Setting up the environment:
 - On your AWS account, head over to `EMR`, and create a cluster, with 5 nodes, 1 of which will serve as the master node and the others as slave nodes.
@@ -41,61 +41,70 @@ aws s3 cp s3://aws-logs-877244108283-us-east-1/elasticmapreduce/j-127WJ4N9UI3WA/
 - `cd` into the folder containing all the necessary files
 
 - Make these files accessible to the slave nodes:
+```
 `hadoop fs -put TrainingDataset.csv`
 `hadoop fs -put ValidationDataset.csv`
-
+```
 
 - You may find all the files stored there by using `ls`. Install all the packages and requirements by using `pip install -r requirements.txt`
 
 - Install Scala:
+```
 `wget https://downloads.lightbend.com/scala/2.12.4/scala-2.12.4.rpm`
 `sudo yum install scala-2.12.4.rpm`
+```
 
 
 - Install Spark:
+```
 `wget https://dlcdn.apache.org/spark/spark-3.3.1/spark-3.3.1-bin-hadoop3.tgz`
 `sudo tar xvf spark-3.3.1-bin-hadoop3.tgz -C /opt`
 `sudo chown -R ec2-user:ec2-user /opt/spark-3.3.1-bin-hadoop3`
 `sudo ln -fs spark-3.3.1-bin-hadoop3 /opt/spark`
+```
 
-- Set path for spark
+- Set path for spark:
+```
 `vim ~/.bash_profile`
 `echo -e "export SPARK_HOME=/opt/spark \n PATH=$PATH:$SPARK_HOME/bin \n export PATH" >> ~/.bash_profile`
 `source  ~/.bash_profile`
+```
 
 
 ### Training:
-- Run the Training.py using: 
+- Run the Training.py using  
 `spark-submit Training.py`
 
 - Copy the saved model from S3 bucket onto master node:
+```
 `mkdir model`
 `aws s3 cp s3://aws-logs-877244108283-us-east-1/elasticmapreduce/j-127WJ4N9UI3WA/wine-qual/model/ ./model --recursive`
+```
 
 
 ### Testing:
-- Run the Testing.py file: - 
+- Run the Testing.py file using
 `python Test.py`
 
 
 ### Containerization:
 - Install Docker:
 ```
-sudo yum search docker
-sudo yum info docker
-sudo yum install docker
-sudo usermod -a -G docker ec2-user
-sudo id ec2-user
-sudo newgrp docker
-sudo systemctl enable docker.service
-sudo systemctl start docker.service
+`sudo yum search docker`
+`sudo yum info docker`
+`sudo yum install docker`
+`sudo usermod -a -G docker ec2-user`
+`sudo id ec2-user`
+`sudo newgrp docker`
+`sudo systemctl enable docker.service`
+`sudo systemctl start docker.service`
 ```
 
-- Pull the docker image from your dockerhub repo:
+- Pull the docker image from your dockerhub repo using 
 `docker pull ks468/winepredict:latest`
 
-- Run the docker image using this command:
-docker run --volume /home/hadoop/:/home/myuser/ ks468/winepredict
+- Run the docker image using
+`docker run --volume /home/hadoop/:/home/myuser/ ks468/winepredict`
 
 ### Link to docker repo:
 https://hub.docker.com/r/ks468/winepredict
