@@ -9,14 +9,14 @@ o TrainingDataset.csv: This dataset is used to train the model in parallel on mu
 o ValidationDataset.csv: This dataset is used to validate the model and optimize its performance. 
 
 
-##The purpose of this project is to learn how to develop parallel machine learning (ML) applications in Amazon AWS cloud platform.
+## The purpose of this project is to learn how to develop parallel machine learning (ML) applications in Amazon AWS cloud platform.
 Specifically, you will learn: 
 - how to use Apache Spark to train an ML model in parallel on multiple EC2 instances
 - how to use Spark’s MLlib to develop and use an ML model in the cloud
 - How to use Docker to create a container for your ML model to simplify model deployment.
 
 
-##Docker container:
+## Docker container:
 A Docker container is built for this prediction application. In this way, the prediction model can be quickly deployed across many different environments.
 
 
@@ -48,7 +48,6 @@ aws s3 cp s3://aws-logs-877244108283-us-east-1/elasticmapreduce/j-127WJ4N9UI3WA/
 - You may find all the files stored there by using `ls`. Install all the packages and requirements by using `pip install -r requirements.txt`
 
 - Install Scala:
-```
 `wget https://downloads.lightbend.com/scala/2.12.4/scala-2.12.4.rpm`
 `sudo yum install scala-2.12.4.rpm`
 
@@ -65,7 +64,7 @@ aws s3 cp s3://aws-logs-877244108283-us-east-1/elasticmapreduce/j-127WJ4N9UI3WA/
 `source  ~/.bash_profile`
 
 
-###Training:
+### Training:
 - Run the Training.py using: 
 `spark-submit Training.py`
 
@@ -74,12 +73,12 @@ aws s3 cp s3://aws-logs-877244108283-us-east-1/elasticmapreduce/j-127WJ4N9UI3WA/
 `aws s3 cp s3://aws-logs-877244108283-us-east-1/elasticmapreduce/j-127WJ4N9UI3WA/wine-qual/model/ ./model --recursive`
 
 
-###Testing:
+### Testing:
 - Run the Testing.py file: - 
 `python Test.py`
 
 
-###Containerization:
+### Containerization:
 - Install Docker:
 ```
 sudo yum search docker
@@ -98,5 +97,5 @@ sudo systemctl start docker.service
 - Run the docker image using this command:
 docker run --volume /home/hadoop/:/home/myuser/ ks468/winepredict
 
-###Link to docker repo:
+### Link to docker repo:
 https://hub.docker.com/r/ks468/winepredict
